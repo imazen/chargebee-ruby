@@ -13,6 +13,8 @@ module ChargeBee
     def initialize(response, next_offset=nil)
       @response = response
       @list = Array.new
+      # 2017-04 Not sure if .to_s is intentional. It broke a test, but hasn't changed in 
+      # since 2014, so I changed the test
       @next_offset = JSON.parse(next_offset).to_s if next_offset
       initItems()
     end
